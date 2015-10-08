@@ -124,25 +124,49 @@
           //if(x + ballRadius >= b.x && x - ballRadius <= b.x + brickWidth && y + ballRadius >= b.y && y - ballRadius <= b.y + brickHeight)
           if(x >= b.x && x <= b.x + brickWidth && y >= b.y && y <= b.y + brickHeight){
             //vertical
-            if ((y == b.y || y == b.y+brickHeight) && (x != b.x && x != b.x + brickWidth)) {
-              if (x < b.x + brickWidth/2){
-                vx=-vxi;
+            if (y >= b.y && y <= b.y+brickHeight){
+              if (x <= b.x + vxi){
+                vx = -vx;
+                if(y <= b.y + brickHeight/2) {
+                  vy = vyi;
+                }
+                else{
+                  vy= -vyi;
+                }
               }
-              else{
-                vx=vxi;
+              if(x >= b.x + brickWidth-vxi){
+                vx = -vx;
+                if(y <= b.y + brickHeight/2) {
+                  vy = vyi;
+                }
+                else{
+                  vy= -vyi;
+                }
               }
-            vy = -vy;
             }
+
             //hotizontal
-            else  {
-              if (y < b.y + brickHeight/2){
-                vy=vyi;
-              }
-              else{
-                vy=-vyi;
-              }
-            vx = -vxi;
+            if  (x >= b.x && x <= b.x + brickWidth){
+                if (y <= b.y - vyi) {
+                  vy=-vy;
+                  if (x <= b.x + brickWidth/2){
+                    vx = -vxi;
+                  }
+                  else{
+                    vx=vxi;
+                  }
+                }
+                if (y >= b.y + brickHeight+vyi){
+                    vy=-vy;
+                    if (x <= b.x + brickWidth/2){
+                      vx = -vxi;
+                    }
+                    else{
+                      vx=vxi;
+                    }
+                  }
             }
+
             b.status = 0;
           }
         }
@@ -168,7 +192,6 @@
     else if(y + ballRadius >= paddleY) {
       //check touch on paddle
       if(x >= paddleX && x <= paddleX + paddleWidth) {
-        if(y = y - paddleHeight){
           //change direction in function of position in paddle
           if (x >= paddleX && x <= paddleX + paddleWidth/3){
             vx = -vxi
@@ -180,7 +203,6 @@
             vx = 0
           }
           vy = -vy;
-        }
       }
       //if ball is not in paddle(verificarrr!!!!!!!!!!!!!!!!)
       else if(y + vy >= canvas.height - ballRadius){
