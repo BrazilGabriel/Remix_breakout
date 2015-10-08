@@ -3,9 +3,9 @@
   var brickWidth = 75;
   var brickHeight = 75;
   //distance of bricks
-  var brickPadding = 10;
+  var brickPadding = 20;
   //top margin
-  var brickOffsetTop = 80;
+  var brickOffsetTop = 140;
   //left margin
   var brickOffsetLeft = 272.5;
 
