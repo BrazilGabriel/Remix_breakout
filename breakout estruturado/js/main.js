@@ -133,11 +133,11 @@ function draw() {
   //move paddle
   if(keys.right && paddleX < canvas.width - paddleWidth) {
     paddleX += 3;
-    paddleUpX -=3;
+    paddleUpX +=3;
   }
   else if(keys.left && paddleX > 0) {
     paddleX -= 3;
-    paddleUpX+=3;
+    paddleUpX -=3;
   }
   //move ball
   x += vx;
