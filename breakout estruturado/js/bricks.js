@@ -1,13 +1,13 @@
   var brickRowCount = 3;
   var brickColumnCount = 5;
-  var brickWidth = 75;
-  var brickHeight = 75;
+  var brickWidth = 50;
+  var brickHeight = 40;
   //distance of bricks
   var brickPadding = 20;
   //top margin
-  var brickOffsetTop = 140;
+  var brickOffsetTop = 240;
   //left margin
-  var brickOffsetLeft = 272.5;
+  var brickOffsetLeft = 122.5;
 
   var bricks = [];
   for(c=0; c<brickColumnCount; c++){

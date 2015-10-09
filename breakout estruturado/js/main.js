@@ -40,16 +40,16 @@ function collisionPaddle(){
     //check touch on paddle
     if(x >= paddleX && x <= paddleX + paddleWidth) {
         //change direction in function of position in paddle
-        if (x >= paddleX && x < paddleX + paddleWidth/5){
+        if (x+ballRadius >= paddleX && x-ballRadius < paddleX + paddleWidth/5){
           vx = -vxi;
         }
-        else if (x>= paddleX + paddleWidth/5 && x < paddleX + 2*paddleWidth/5){
+        else if (x+ballRadius>= paddleX + paddleWidth/5 && x-ballRadius < paddleX + 2*paddleWidth/5){
           vx = -vxi/2;
         }
-        else if (x >= paddleX + 2*(paddleWidth/5) && x < paddleX + 3*paddleWidth/5){
+        else if (x+ballRadius >= paddleX + 2*(paddleWidth/5) && x-ballRadius < paddleX + 3*paddleWidth/5){
           vx = 0;
         }
-        else if (x >= paddleX + 3*paddleWidth/5 && x < paddleX + 4*paddleWidth/5){
+        else if (x+ballRadius >= paddleX + 3*paddleWidth/5 && x-ballRadius < paddleX + 4*paddleWidth/5){
           vx = vxi/2;
         }
         else{
