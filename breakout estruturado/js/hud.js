@@ -18,7 +18,7 @@ function updateScore(){
   var time_diff = time_now - startTime;
   var seconds_elapsed = Math.floor ( time_diff / 1000 );
   context.fillStyle = "#56b69f";
-  context.fillText("|Score: "+score+"|", scoreX, scoreY);
-  context.fillText("|Blocks Bricked: "+blocksBricked +"|", bbX, bbY);
-  context.fillText("|Elapsed Time: "+seconds_elapsed +"|" , tX, tY);
+  context.fillText("(Score: "+score+")", scoreX, scoreY);
+  context.fillText("(Blocks Bricked: "+blocksBricked +")", bbX, bbY);
+  context.fillText("(Elapsed Time: "+seconds_elapsed +")" , tX, tY);
   }
