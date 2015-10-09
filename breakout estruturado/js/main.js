@@ -24,6 +24,8 @@ function collisionBricks(){
             vx = -vx;
           }
           b.status = 0;
+          blocksBricked += 1;
+          score+=100;
           }
         }
       }
@@ -37,6 +39,7 @@ function collisionPaddle(){
   }
   //check ball y = paddle y
   if(y + ballRadius >= canvas.height-ballRadius) {
+    score += 50;
     //check touch on paddle
     if(x >= paddleX && x <= paddleX + paddleWidth) {
         //change direction in function of position in paddle
@@ -66,6 +69,7 @@ function collisionPaddle(){
   //check ball y = paddleUpY
   if(y + vy <= ballRadius) {
     //check touch on paddle
+    score += 50;
     if(x >= paddleUpX && x <= paddleUpX + paddleWidth) {
         //change direction in function of position in paddle
         if (x >= paddleUpX && x < paddleUpX + paddleWidth/5){
@@ -101,6 +105,7 @@ function draw() {
   drawPaddleUp();
   collisionBricks();
   collisionPaddle();
+  updateScore();
 
   //move paddle
   if(keys.right && paddleX < canvas.width - paddleWidth) {
