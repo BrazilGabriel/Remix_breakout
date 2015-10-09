@@ -10,53 +10,25 @@ function collisionBricks(){
       var b = bricks[c][r];
       if (b.status == 1) {
         //verifica a colisao da bola com o brick
-        if((x >= b.x && x <= b.x + brickWidth) && (y >= b.y && y <= b.y + brickHeight)){
+        if((x>= b.x && x <= b.x + brickWidth) && (y >= b.y && y <= b.y + brickHeight)){
+          if(y >= b.y + (brickHeight/2)){
+            vy = -vy;
+          }
+          else if(y <= b.y + brickHeight){
+            vy = -vy;
+          }
+          else if(x < b.x){
+            vx = -vx;
+          }
+          else if(x > b.x){
+            vx = -vx;
+          }
           b.status = 0;
-          //verifica se foi nos quadrantes inferiores do brik
-          if(y >= brickHeight/2 + b.y){
-            //verifica se foi no quadrante inferior esquerdo
-            if((x >= b.x && x <= b.x + brickWidth/2 )&&(y >= brickHeight/2 + b.y && y <= b.y + brickHeight)){
-              vx = -vxi;
-              vy = -vyi;
-              b.status = 0;
-              break;
-              break;
-            }
-            //verifica se foi no inferior direito
-            else if((x > b.x + brickWidth/2 && x <= b.x + brickWidth) && (y >= brickHeight/2 + b.y && y <= b.y + brickHeight)){
-              vx = vxi;
-              vy = -vyi;
-              b.status = 0;
-              break;
-              break;
-
-            }
           }
-          //verifica se foi nos quadrantes superiores
-          else if (y < brickHeight/2 + b.y){
-            //verifica se foi no superior esquerdo
-            if((x >= b.x && x <= b.x + brickWidth/2)&&(y >= b.y && y < b.y + brickHeight/2)){
-              vx = -vxi;
-              vy = vyi;
-              break;
-              break;
-              b.status = 0;
-            }
-            //verifica se foi no superior direito
-            if((x > b.x + brickWidth/2 && x <= b.x + brickWidth)&&(y >= b.y && y < b.y + brickHeight/2)){
-              vx = vxi;
-              vy = vyi;
-              break;
-              break;
-             b.status = 0;
-            }
-          }
-//              b.status=0;
         }
       }
     }
   }
-}
 
 function collisionPaddle(){
 //bonce bol horinzontal
