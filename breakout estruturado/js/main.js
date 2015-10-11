@@ -34,8 +34,11 @@ function collisionBricks(){
 
 function collisionPaddle(){
 //bonce bol horinzontal
-  if(x + vx >= canvas.width - ballRadius || x + vx <= ballRadius) {
+  if(x + vx >= canvas.width - ballRadius) {
     vx = -vx;
+  }
+  if (y <= 0){
+    vy = -vy;
   }
   //check ball y = paddle y
   if(y + ballRadius >= canvas.height-ballRadius) {
@@ -61,38 +64,38 @@ function collisionPaddle(){
         vy = -vy;
     }
     //if ball is not in paddle(verificarrr!!!!!!!!!!!!!!!!)
-    else if(y + vy >= canvas.height - ballRadius){
-    alert("Game Over");
-    document.location.reload();
+    else if(y - vy >= canvas.height - ballRadius){
+      alert("Game Over");
+      document.location.reload();
     }
   }
-  //check ball y = paddleUpY
-  if(y + vy <= ballRadius) {
+  //check ball x = paddleLeftX
+  if(x + vx <= paddleLeftWidth) {
     //check touch on paddle
     score += 50;
-    if(x >= paddleUpX && x <= paddleUpX + paddleWidth) {
+    if(y+ballRadius >= paddleLeftY && y+ballRadius <= paddleLeftY + paddleLeftHeight) {
         //change direction in function of position in paddle
-        if (x >= paddleUpX && x < paddleUpX + paddleWidth/5){
-          vx = -vxi;
+        if (y >= paddleLeftY && y < paddleLeftY + paddleLeftHeight/5){
+          vy = vyi;
         }
-        else if (x >= paddleUpX + paddleWidth/5 && x < paddleUpX + 2*paddleWidth/5){
-          vx = -vxi/2;
+        else if (y >= paddleLeftX + paddleWidth/5 && y < paddleLeftX + 2*paddleLeftHeight/5){
+          vy = vyi/2;
         }
-        else if (x >= paddleUpX + 2*(paddleWidth/5) && x < paddleUpX + 3*paddleWidth/5){
-          vx = 0;
+        else if (y >= paddleLeftX + 2*(paddleWidth/5) && y < paddleLeftX + 3*paddleLeftHeight/5){
+          vy = 0;
         }
-        else if (x >= paddleUpX + 3*paddleWidth/5 && x < paddleUpX + 4*paddleWidth/5){
-          vx = vxi/2;
+        else if (y >= paddleLeftX + 3*paddleWidth/5 && y < paddleLeftX + 4*paddleLeftHeight/5){
+          vy = -vyi/2;
         }
         else{
-          vx = vxi
+          vy = -vyi
         }
-        vy = -vy;
+        vx = -vx;
     }
     //if ball is not in paddle(verificarrr!!!!!!!!!!!!!!!!)
-    else if(y + vy <= ballRadius){
-    alert("Game Over");
-    document.location.reload();
+    else if(x <= paddleLeftWidth-ballRadius){
+      alert("Game Over");
+      document.location.reload();
     }
   }
 }
@@ -102,7 +105,7 @@ function draw() {
   drawBricks();
   drawBall();
   drawPaddle();
-  drawPaddleUp();
+  drawPaddleLeft();
   collisionBricks();
   collisionPaddle();
   updateScore();
@@ -110,11 +113,11 @@ function draw() {
   //move paddle
   if(keys.right && paddleX < canvas.width - paddleWidth) {
     paddleX += 3;
-    paddleUpX +=3;
+    paddleLeftY -=3;
   }
   else if(keys.left && paddleX > 0) {
     paddleX -= 3;
-    paddleUpX -=3;
+    paddleLeftY +=3;
   }
   //move ball
   x += vx;

@@ -1,9 +1,11 @@
-var paddleHeight = 10;
+var paddleHeight = 30;
 var paddleWidth = 150;
+var paddleLeftHeight = 150;
+var paddleLeftWidth = 30;
 var paddleX = (canvas.width - paddleWidth)/2;
 var paddleY = (canvas.height - paddleHeight);
-var paddleUpX = (canvas.width - paddleWidth)/2;
-var paddleUpY = 0
+var paddleLeftX = 0;
+var paddleLeftY = (canvas.height-paddleLeftHeight)/2;
 
 function drawPaddle(){
   context.beginPath();
@@ -13,10 +15,10 @@ function drawPaddle(){
   context.closePath();
 }
 
-function drawPaddleUp(){
+function drawPaddleLeft(){
   context.beginPath();
-  context.rect(paddleUpX, paddleUpY, paddleWidth, paddleHeight);
-  context.fillStyle = "#0095DD";
+  context.rect(paddleLeftX, paddleLeftY, paddleLeftWidth, paddleLeftHeight);
+  context.fillStyle = "#BF5050";
   context.fill();
   context.closePath();
 }
