@@ -16,7 +16,7 @@ function updateScore(){
   var time_now = date_now.getTime ();
   var time_diff = time_now - startTime;
   var seconds_elapsed = Math.floor ( time_diff / 1000 );
-  context.fillStyle = "#56b69f";
+  context.fillStyle = "#BFAD50";
   context.fillText("(Stage: "+stage+")", stageX, stageY);
   context.fillText("(Blocks Bricked: "+blocksBricked +")", bbX, bbY);
   context.fillText("(Elapsed Time: "+seconds_elapsed +")" , tX, tY);
