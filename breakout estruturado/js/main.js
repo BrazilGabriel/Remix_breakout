@@ -42,7 +42,6 @@ function collisionPaddle(){
   }
   //check ball y = paddle y
   if(y + ballRadius >= canvas.height-ballRadius) {
-    score += 50;
     //check touch on paddle
     if(x >= paddleX && x <= paddleX + paddleWidth) {
         //change direction in function of position in paddle
@@ -72,7 +71,6 @@ function collisionPaddle(){
   //check ball x = paddleLeftX
   if(x + vx <= paddleLeftWidth) {
     //check touch on paddle
-    score += 50;
     if(y+ballRadius >= paddleLeftY && y+ballRadius <= paddleLeftY + paddleLeftHeight) {
         //change direction in function of position in paddle
         if (y >= paddleLeftY && y < paddleLeftY + paddleLeftHeight/5){

@@ -1,7 +1,6 @@
-var score = 0;
-var scoremax = 9999;
-var scoreX = 60;
-var scoreY = 50;
+var stage = 0;
+var stageX = 60;
+var stageY = 50;
 var blocksBricked = 0;
 var bbX = 200;
 var bbY = 50;
@@ -18,7 +17,7 @@ function updateScore(){
   var time_diff = time_now - startTime;
   var seconds_elapsed = Math.floor ( time_diff / 1000 );
   context.fillStyle = "#56b69f";
-  context.fillText("(Score: "+score+")", scoreX, scoreY);
+  context.fillText("(Stage: "+stage+")", stageX, stageY);
   context.fillText("(Blocks Bricked: "+blocksBricked +")", bbX, bbY);
   context.fillText("(Elapsed Time: "+seconds_elapsed +")" , tX, tY);
   }
