@@ -25,7 +25,6 @@ function collisionBricks(){
           }
           b.status = 0;
           blocksBricked += 1;
-          score+=100;
           }
         }
       }
@@ -111,11 +110,11 @@ function draw() {
   //move paddle
   if(keys.right && paddleX < canvas.width - paddleWidth) {
     paddleX += 3;
-    paddleLeftY +=3;
+    paddleLeftY -=3;
   }
   else if(keys.left && paddleX > 0) {
     paddleX -= 3;
-    paddleLeftY -=3;
+    paddleLeftY +=3;
   }
   //move ball
   x += vx;
