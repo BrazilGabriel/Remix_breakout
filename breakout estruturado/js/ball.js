@@ -9,7 +9,7 @@ var ballRadius = 10;
 function drawBall() {
   context.beginPath();
   context.arc(x, y, ballRadius, 0, Math.PI*2);
-  context.fillStyle = "#d34e50";
+  context.fillStyle = "#BFAD50";
   context.fill();
   context.closePath();
 }
