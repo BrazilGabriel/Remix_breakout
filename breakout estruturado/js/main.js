@@ -60,7 +60,6 @@ function collisionPaddle(){
     }
     //if ball is not in paddle(verificarrr!!!!!!!!!!!!!!!!)
     else if(y - vy >= canvas.height - ballRadius){
-      alert("Game Over");
       document.location.reload();
     }
   }
@@ -88,7 +87,6 @@ function collisionPaddle(){
     }
     //if ball is not in paddle(verificarrr!!!!!!!!!!!!!!!!)
     else if(x <= paddleLeftWidth-ballRadius){
-      alert("Game Over");
       document.location.reload();
     }
   }

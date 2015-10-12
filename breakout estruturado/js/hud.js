@@ -19,6 +19,6 @@ function updateScore(){
   context.fillStyle = "#BFAD50";
   context.fillText("(Stage: "+stage+")", stageX, stageY);
   context.fillText("(Blocks Bricked: "+blocksBricked +")", bbX, bbY);
-  context.fillText("(Elapsed Time: "+seconds_elapsed +")" , tX, tY);  
+  context.fillText("(Elapsed Time: "+seconds_elapsed +")" , tX, tY);
   localStorage.setItem("seconds_elapsed", seconds_elapsed);
   }
