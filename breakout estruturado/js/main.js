@@ -1,9 +1,6 @@
-var canvas = document.getElementById("Canvas");
-var context = canvas.getContext('2d');
-
-var desiredFps = 120
-
 //bricks collision
+var desiredFps = 120;
+
 function collisionBricks(){
   for(c = 0; c<brickColumnCount; c++){
     for(r = 0; r<brickRowCount; r++){
@@ -98,6 +95,7 @@ function collisionPaddle(){
 }
 
 function draw() {
+  if (menuOff){
   context.clearRect(0, 0, canvas.width, canvas.height);
   drawBricks();
   drawBall();
@@ -106,19 +104,19 @@ function draw() {
   collisionBricks();
   collisionPaddle();
   updateScore();
-
-  //move paddle
   if(keys.right && paddleX < canvas.width - paddleWidth) {
     paddleX += 3;
-    paddleLeftY -=3;
+    paddleLeftY +=3;
   }
   else if(keys.left && paddleX > 0) {
     paddleX -= 3;
-    paddleLeftY +=3;
+    paddleLeftY -=3;
   }
   //move ball
   x += vx;
   y += vy;
+  //move paddle
 }
 
+}
 setInterval(draw, 1000/desiredFps);

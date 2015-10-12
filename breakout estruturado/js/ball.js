@@ -13,4 +13,3 @@ function drawBall() {
   context.fill();
   context.closePath();
 }
-drawBall();
