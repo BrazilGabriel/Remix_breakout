@@ -15,6 +15,7 @@ function drawMenu(){
   context.fillStyle = "#BFAD50";
   context.font = "20px Tahoma";
   context.fillText("Press any key to play!", canvas.width/3, canvas.height/2);
+  context.fillStyle = "#00CC33";
   context.fillText("Last time you've broken "+localStorage.getItem("blocksBricked")+" blocks", canvas.width/3.9, canvas.height/1.5);
   context.fillText("in "+localStorage.getItem("seconds_elapsed")+" seconds!", canvas.width/2.5, canvas.height/1.4);
 }
