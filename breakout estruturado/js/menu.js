@@ -5,7 +5,6 @@ var menuOff = false;
 document.addEventListener("keydown", change, false);
 
 function change(){
-  context.clearRect(0, 0, canvas.width, canvas.height);
   menuOff = true;
 }
 
@@ -16,6 +15,8 @@ function drawMenu(){
   context.fillStyle = "#BFAD50";
   context.font = "20px Tahoma";
   context.fillText("Press any key to play!", canvas.width/3, canvas.height/2);
+  context.fillText("Last time you've broken "+localStorage.getItem("blocksBricked")+" blocks", canvas.width/3.9, canvas.height/1.5);
+  context.fillText("in "+localStorage.getItem("seconds_elapsed")+" seconds!", canvas.width/2.5, canvas.height/1.4);
 }
 
 

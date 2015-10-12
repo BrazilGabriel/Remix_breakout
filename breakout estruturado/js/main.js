@@ -116,6 +116,7 @@ function draw() {
   x += vx;
   y += vy;
   //move paddle
+  localStorage.setItem("blocksBricked", blocksBricked);
 }
 
 }
