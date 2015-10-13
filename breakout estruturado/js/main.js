@@ -42,19 +42,19 @@ function collisionPaddle(){
     if(x >= paddleX && x <= paddleX + paddleWidth) {
         //change direction in function of position in paddle
         if (x+ballRadius >= paddleX && x-ballRadius < paddleX + paddleWidth/5){
-          vx = -vxi;
+          vx = vxi;
         }
         else if (x+ballRadius>= paddleX + paddleWidth/5 && x-ballRadius < paddleX + 2*paddleWidth/5){
-          vx = -vxi/2;
+          vx = vxi/2;
         }
         else if (x+ballRadius >= paddleX + 2*(paddleWidth/5) && x-ballRadius < paddleX + 3*paddleWidth/5){
           vx = 0;
         }
         else if (x+ballRadius >= paddleX + 3*paddleWidth/5 && x-ballRadius < paddleX + 4*paddleWidth/5){
-          vx = vxi/2;
+          vx = -vxi/2;
         }
         else{
-          vx = vxi
+          vx = -vxi
         }
         vy = -vy;
     }
@@ -69,19 +69,19 @@ function collisionPaddle(){
     if(y+ballRadius >= paddleLeftY && y+ballRadius <= paddleLeftY + paddleLeftHeight) {
         //change direction in function of position in paddle
         if (y >= paddleLeftY && y < paddleLeftY + paddleLeftHeight/5){
-          vy = vyi;
+          vy = -vyi;
         }
         else if (y >= paddleLeftX + paddleWidth/5 && y < paddleLeftX + 2*paddleLeftHeight/5){
-          vy = vyi/2;
+          vy = -vyi/2;
         }
         else if (y >= paddleLeftX + 2*(paddleWidth/5) && y < paddleLeftX + 3*paddleLeftHeight/5){
           vy = 0;
         }
         else if (y >= paddleLeftX + 3*paddleWidth/5 && y < paddleLeftX + 4*paddleLeftHeight/5){
-          vy = -vyi/2;
+          vy = vyi/2;
         }
         else{
-          vy = -vyi
+          vy = vyi
         }
         vx = -vx;
     }
