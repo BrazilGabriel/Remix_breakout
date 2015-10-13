@@ -1,7 +1,15 @@
 var x = canvas.width/2;
 var y = canvas.height-30;
-var vxi = 3;
-var vyi = -3;
+
+if (stage == 1){
+  var vxi = 3;
+  var vyi = -3;
+}
+else{
+  var vxi = 4;
+  var vyi = -4;
+}
+
 var vx = vxi;
 var vy = vyi;
 var ballRadius = 10;

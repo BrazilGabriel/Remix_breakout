@@ -44,10 +44,20 @@
           context.drawImage(obstacle1, brickX, brickY, 50, 50);
           }
           else if (bricks[c][r].choice == 1) {
-          context.drawImage(obstacle2, brickX, brickY, 50, 50);
+            if (stage == 1){
+              context.drawImage(obstacle2, brickX, brickY, 50, 50);
+          }
+            else{
+              context.drawImage(obstacle4, brickX, brickY, 50, 50);
+            }
           }
           else if (bricks[c][r].choice == 2){
-          context.drawImage(obstacle3, brickX, brickY, 50, 50);
+            if (stage == 1){
+              context.drawImage(obstacle3, brickX, brickY, 50, 50);
+          }
+            else{
+              context.drawImage(obstacle5, brickX, brickY, 50, 50);
+            }
           }
         }
       }
