@@ -1,13 +1,29 @@
   var brickRowCount = 3;
   var brickColumnCount = 5;
-  var brickWidth = 50;
-  var brickHeight = 40;
+  var brickWidth = 75;
+  var brickHeight = 75;
   //distance of bricks
   var brickPadding = 20;
   //top margin
-  var brickOffsetTop = 240;
+  var brickOffsetTop = 140;
   //left margin
-  var brickOffsetLeft = 122.5;
+  var brickOffsetLeft = 100.5;
+  var whichOne = 0;
+
+  var obstacle1 = new Image();
+  obstacle1.src = "imgs/O1.png";
+
+  var obstacle2 = new Image();
+  obstacle2.src = "imgs/O2.png";
+
+  var obstacle3 = new Image();
+  obstacle3.src = "imgs/O3.png";
+
+  var obstacle4 = new Image();
+  obstacle4.src = "imgs/O4.png";
+
+  var obstacle5 = new Image();
+  obstacle5.src = "imgs/O5.png";
 
   var bricks = [];
   for(c=0; c<brickColumnCount; c++){
@@ -25,12 +41,21 @@
           var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
           bricks[c][r].x = brickX;
           bricks[c][r].y = brickY;
-          context.beginPath();
-          context.rect(brickX, brickY, brickWidth, brickHeight);
-          context.fillStyle = "#56b69f";
-          context.fill();
-          context.closePath();
+          whichOne = getRandomInt(0, 2);
+          if (whichOne == 0){
+          context.drawImage(obstacle1, brickX, brickY, 50, 50);
+          }
+          else if (whichOne == 1){
+          context.drawImage(obstacle2, brickX, brickY, 50, 50);
+          }
+          else if (whichOne == 2){
+          context.drawImage(obstacle3, brickX, brickY, 50, 50);
+          }
         }
       }
     }
+  }
+
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
