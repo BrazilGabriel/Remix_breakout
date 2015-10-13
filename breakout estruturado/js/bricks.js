@@ -8,7 +8,6 @@
   var brickOffsetTop = 140;
   //left margin
   var brickOffsetLeft = 100.5;
-  var whichOne = 0;
 
   var obstacle1 = new Image();
   obstacle1.src = "imgs/O1.png";
