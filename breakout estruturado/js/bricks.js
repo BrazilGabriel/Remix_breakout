@@ -29,7 +29,7 @@
   for(c=0; c<brickColumnCount; c++){
     bricks[c] = [];
     for(r=0; r<brickRowCount; r++){
-      bricks[c][r] = {x: 0, y: 0, status: 1};
+      bricks[c][r] = {x: 0, y: 0, status: 1, choice: getRandomInt(0,2)};
     }
   }
 
@@ -41,14 +41,13 @@
           var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
           bricks[c][r].x = brickX;
           bricks[c][r].y = brickY;
-          whichOne = getRandomInt(0, 2);
-          if (whichOne == 0){
+          if (bricks[c][r].choice == 0 ){
           context.drawImage(obstacle1, brickX, brickY, 50, 50);
           }
-          else if (whichOne == 1){
+          else if (bricks[c][r].choice == 1) {
           context.drawImage(obstacle2, brickX, brickY, 50, 50);
           }
-          else if (whichOne == 2){
+          else if (bricks[c][r].choice == 2){
           context.drawImage(obstacle3, brickX, brickY, 50, 50);
           }
         }
