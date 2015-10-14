@@ -7,9 +7,15 @@ played = false;
 var bg = new Image();
 bg.src = "imgs/background.png";
 
+// // // Sons
+var hitB = new Audio();
+hitB.src = "sounds/hit.ogg"
+
 var hit = new Audio();
 hit.src = "sounds/hitMan.mp3";
 function init(){
+// // // Sons
+
 
 
     taco.animations.idle = {
@@ -77,7 +83,6 @@ function update() {
 }
 
 if (blocksBricked == 15 | blocksBricked == 30 | blocksBricked == 45 | blocksBricked == 60){
-    blocksBricked = 0;
     stage+=1;
     localStorage.setItem("stage", stage);
     for(c = 0; c<brickColumnCount; c++){
@@ -104,6 +109,9 @@ function render(){
       if (played){
         context.drawImage(blood, xtoDelete, ytoDelete, 50, 50);
       }
+    }
+    else{
+      drawMenu();
     }
 
     // desenhar objetos do jogo

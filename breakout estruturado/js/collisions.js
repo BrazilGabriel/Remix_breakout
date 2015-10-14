@@ -65,6 +65,7 @@ function collisionPaddle(){
           vy = -vyi;
         }
         vy = -vy;
+        hitB.play();
     }
     //if ball is not in paddle(verificarrr!!!!!!!!!!!!!!!!)
     else if(y - vy >= canvas.height - ballRadius){
@@ -99,6 +100,7 @@ function collisionPaddle(){
           vx = -vxi;
         }
         vx = -vx;
+        hitB.play();
     }
     //if ball is not in paddle(verificarrr!!!!!!!!!!!!!!!!)
     else if(x <= paddleLeftWidth-ballRadius){
