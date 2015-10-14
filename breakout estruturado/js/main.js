@@ -1,6 +1,8 @@
+var taco = new AnimatedSprite(paddleX,paddleY-50, "imgs/spritetaco.png", 121, 70, context);
 var desiredFps = 60;
 var lastUpdate = Date.now(); // tempo atual (para física)
-var taco = new AnimatedSprite(200,400, "imgs/spritetaco.png", 121, 70, context);
+
+
 played = false;
 var bg = new Image();
 bg.src = "imgs/background.png";
@@ -9,8 +11,9 @@ var hit = new Audio();
 hit.src = "sounds/hitMan.mp3";
 function init(){
 
+
     taco.animations.idle = {
-      frames:[3],
+      frames:[0],
       frameDuration:200
     }
     taco.animations.attack = {
@@ -47,7 +50,7 @@ function update() {
   lastUpdate = now;
 
   if (menuOff){
-    taco.update(keys,dt);
+    taco.update(paddleX,paddleY, keys,dt);
     collisionBricks();
     collisionPaddle();
 
@@ -96,8 +99,8 @@ function render(){
       drawBall();
       drawPaddle();
       drawPaddleLeft();
-      taco.draw();
       drawBricks();
+      taco.draw();
       if (played){
         context.drawImage(blood, xtoDelete, ytoDelete, 50, 50);
       }

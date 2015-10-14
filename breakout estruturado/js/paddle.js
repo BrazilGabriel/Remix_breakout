@@ -6,7 +6,6 @@ var paddleX = (canvas.width - paddleWidth)/2;
 var paddleY = (canvas.height - paddleHeight);
 var paddleLeftX = 0;
 var paddleLeftY = (canvas.height-paddleLeftHeight)/2;
-
 var paddle1 = new Image();
 paddle1.src = "imgs/background.png";
 
