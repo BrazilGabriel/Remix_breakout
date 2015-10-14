@@ -12,15 +12,15 @@ paddle1.src = "imgs/background.png";
 function drawPaddle(){
   context.beginPath();
   context.rect(paddleX, paddleY, paddleWidth, paddleHeight);
-  context.fillStyle = "#0095DD";
-  context.fill();
+//  context.fillStyle = "0X000000";
+//  context.fill();
   context.closePath();
 }
 
 function drawPaddleLeft(){
   context.beginPath();
   context.rect(paddleLeftX, paddleLeftY, paddleLeftWidth, paddleLeftHeight);
-  context.fillStyle = "#BF5050";
-  context.fill();
+//  context.fillStyle = "#BF5050";
+//  context.fill();
   context.closePath();
 }

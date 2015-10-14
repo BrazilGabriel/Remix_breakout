@@ -1,9 +1,10 @@
 "use strict";
 
-function AnimatedSprite(x, y, imagePath, spriteHeight, spriteWidth, context){
+function AnimatedSprite(x, y, imagePath, spriteHeight, spriteWidth, paddle, context){
     this.x = x;
     this.y = y;
     this.context = context;
+    this.paddle = paddle
 
     // Inicialização do spritesheet
     this.spriteWidth = spriteHeight; // largura do sprite
@@ -52,8 +53,29 @@ AnimatedSprite.prototype.update = function(input, dt){
         this.currentFrameIndex++;
         if(this.currentFrameIndex >= this.frames.length){
             this.currentFrameIndex = 0;
-        }
+            if(this.paddle==1){
+              anime=false;
+            }
+            else{
+              anime2=false;
+            }
+          }
     }
+    if (this.paddle==1){
+      this.x=paddleX+20;
+      this.y=paddleY-32;
+    }
+    else{
+      this.x=paddleLeftX-5;
+      this.y=paddleLeftY+15;
+    }
+
+    //if(input.left == true){
+      //  this.x -= 3;
+  //  }
+    //else if(input.right == true){
+      //  this.x += 3;
+    //}
 }
 
 AnimatedSprite.prototype.draw = function(){

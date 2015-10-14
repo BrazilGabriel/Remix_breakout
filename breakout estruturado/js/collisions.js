@@ -32,7 +32,7 @@ function collisionBricks(){
 
 
 function collisionPaddle(){
-//bonce bol horinzontal
+//bonce ball horinzontal
   if(x + vx >= canvas.width - ballRadius) {
     vx = -vx;
   }
@@ -66,6 +66,7 @@ function collisionPaddle(){
         }
         vy = -vy;
         hitB.play();
+        anime=true;
     }
     //if ball is not in paddle(verificarrr!!!!!!!!!!!!!!!!)
     else if(y - vy >= canvas.height - ballRadius){
@@ -101,6 +102,7 @@ function collisionPaddle(){
         }
         vx = -vx;
         hitB.play();
+        anime2=true;
     }
     //if ball is not in paddle(verificarrr!!!!!!!!!!!!!!!!)
     else if(x <= paddleLeftWidth-ballRadius){

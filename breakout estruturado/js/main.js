@@ -1,11 +1,15 @@
-var taco = new AnimatedSprite(paddleX,paddleY-50, "imgs/spritetaco.png", 121, 70, context);
 var desiredFps = 60;
 var lastUpdate = Date.now(); // tempo atual (para física)
 
-
+var anime=false;
+var anime2=false;
 played = false;
 var bg = new Image();
 bg.src = "imgs/background.png";
+
+
+var taco = new AnimatedSprite(paddleX+25, paddleY-25, "imgs/spritetaco1.png", 121, 70, 1, context);
+var taco2 =  new AnimatedSprite(0,0, "imgs/spritetaco2.png", 70, 121, 2, context);
 
 // // // Sons
 var hitB = new Audio();
@@ -13,21 +17,27 @@ hitB.src = "sounds/hit.ogg"
 
 var hit = new Audio();
 hit.src = "sounds/hitMan.mp3";
+
 function init(){
-// // // Sons
-
-
-
     taco.animations.idle = {
       frames:[0],
       frameDuration:200
     }
     taco.animations.attack = {
-      frames: [4,5],
+      frames: [1,2],
+      frameDuration: 100
+    }
+    taco2.animations.idle = {
+      frames:[0],
+      frameDuration: 200
+    }
+    taco2.animations.attack = {
+      frames:[1,2],
       frameDuration: 100
     }
     // Adicionando animações do dragon
     taco.setAnimation("idle");
+    taco2.setAnimation("idle");
 
     // chama gameloop
     gameloop();
@@ -56,10 +66,23 @@ function update() {
   lastUpdate = now;
 
   if (menuOff){
-    taco.update(paddleX,paddleY, keys,dt);
+    taco2.update(keys,dt);
+    taco.update(keys,dt);
     collisionBricks();
     collisionPaddle();
 
+    if(anime){
+        taco.setAnimation("attack");
+    }
+    else {
+        taco.setAnimation("idle");
+    }
+    if(anime2){
+        taco2.setAnimation("attack");
+    }
+    else {
+        taco2.setAnimation("idle");
+    }
 
     if(keys.right && paddleX < canvas.width - paddleWidth) {
       paddleX += 3;
@@ -106,6 +129,7 @@ function render(){
       drawPaddleLeft();
       drawBricks();
       taco.draw();
+      taco2.draw();
       if (played){
         context.drawImage(blood, xtoDelete, ytoDelete, 50, 50);
       }
