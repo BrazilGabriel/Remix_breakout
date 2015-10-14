@@ -7,6 +7,9 @@ var paddleY = (canvas.height - paddleHeight);
 var paddleLeftX = 0;
 var paddleLeftY = (canvas.height-paddleLeftHeight)/2;
 
+var paddle1 = new Image();
+paddle1.src = "imgs/background.png";
+
 function drawPaddle(){
   context.beginPath();
   context.rect(paddleX, paddleY, paddleWidth, paddleHeight);

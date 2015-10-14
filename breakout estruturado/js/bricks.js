@@ -1,9 +1,9 @@
   var brickRowCount = 3;
   var brickColumnCount = 5;
-  var brickWidth = 75;
-  var brickHeight = 75;
+  var brickWidth = 50;
+  var brickHeight = 50;
   //distance of bricks
-  var brickPadding = 10;
+  var brickPadding = 30;
   //top margin
   var brickOffsetTop = 140;
   //left margin
@@ -24,6 +24,9 @@
   var obstacle5 = new Image();
   obstacle5.src = "imgs/O5.png";
 
+  var blood = new Image();
+  blood.src = "imgs/blood.png";
+
   var bricks = [];
   for(c=0; c<brickColumnCount; c++){
     bricks[c] = [];
@@ -41,20 +44,34 @@
           bricks[c][r].x = brickX;
           bricks[c][r].y = brickY;
           if (bricks[c][r].choice == 0 ){
-          context.drawImage(obstacle1, brickX, brickY, 50, 50);
-          }
-          else if (bricks[c][r].choice == 1) {
             if (stage == 1){
               context.drawImage(obstacle2, brickX, brickY, 50, 50);
           }
-            else{
+            else if (stage == 2){
+              context.drawImage(obstacle3, brickX, brickY, 50, 50);
+            }
+          else{
               context.drawImage(obstacle4, brickX, brickY, 50, 50);
+            }
+          }
+          else if (bricks[c][r].choice == 1) {
+            if (stage == 1){
+              context.drawImage(obstacle5, brickX, brickY, 50, 50);
+          }
+            else if (stage == 2){
+              context.drawImage(obstacle1, brickX, brickY, 50, 50);
+            }
+          else{
+              context.drawImage(obstacle2, brickX, brickY, 50, 50);
             }
           }
           else if (bricks[c][r].choice == 2){
             if (stage == 1){
               context.drawImage(obstacle3, brickX, brickY, 50, 50);
           }
+            else if (stage == 2){
+              context.drawImage(obstacle4, brickX, brickY, 50, 50);
+            }
             else{
               context.drawImage(obstacle5, brickX, brickY, 50, 50);
             }

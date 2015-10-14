@@ -1,6 +1,7 @@
 //bricks collision
 var desiredFps = 120;
 
+played = false;
 var bg = new Image();
 bg.src = "imgs/background.png";
 
@@ -29,6 +30,10 @@ function collisionBricks(){
           hit.play();
           b.status = 0;
           blocksBricked += 1;
+          context.drawImage(blood, b.x, b.y, 50, 50);
+          xtoDelete = b.x;
+          ytoDelete = b.y;
+          played = true;
           }
         }
       }
@@ -40,7 +45,7 @@ function collisionPaddle(){
   if(x + vx >= canvas.width - ballRadius) {
     vx = -vx;
   }
-  if (y <= 0){
+  if (y <= 65){
     vy = -vy;
   }
   //check ball y = paddle y
@@ -50,24 +55,31 @@ function collisionPaddle(){
         //change direction in function of position in paddle
         if (x+ballRadius >= paddleX && x-ballRadius < paddleX + paddleWidth/5){
           vx = vxi;
+          vy = -vyi;
         }
         else if (x+ballRadius>= paddleX + paddleWidth/5 && x-ballRadius < paddleX + 2*paddleWidth/5){
           vx = vxi/2;
+          vy = -vyi;
         }
         else if (x+ballRadius >= paddleX + 2*(paddleWidth/5) && x-ballRadius < paddleX + 3*paddleWidth/5){
           vx = 0;
+          vy = -(vyi-1);
         }
         else if (x+ballRadius >= paddleX + 3*paddleWidth/5 && x-ballRadius < paddleX + 4*paddleWidth/5){
           vx = -vxi/2;
+          vy = -vyi;
         }
         else{
           vx = -vxi
+          vy = -vyi;
         }
         vy = -vy;
     }
     //if ball is not in paddle(verificarrr!!!!!!!!!!!!!!!!)
     else if(y - vy >= canvas.height - ballRadius){
       document.location.reload();
+      stage = 1;
+      localStorage.setItem("stage", stage);
     }
   }
   //check ball x = paddleLeftX
@@ -77,33 +89,44 @@ function collisionPaddle(){
         //change direction in function of position in paddle
         if (y >= paddleLeftY && y < paddleLeftY + paddleLeftHeight/5){
           vy = -vyi;
+          vx = -vxi;
         }
         else if (y >= paddleLeftX + paddleWidth/5 && y < paddleLeftX + 2*paddleLeftHeight/5){
           vy = -vyi/2;
+          vx = -vxi;
         }
         else if (y >= paddleLeftX + 2*(paddleWidth/5) && y < paddleLeftX + 3*paddleLeftHeight/5){
           vy = 0;
+          vx = -(vxi+1);
         }
         else if (y >= paddleLeftX + 3*paddleWidth/5 && y < paddleLeftX + 4*paddleLeftHeight/5){
           vy = vyi/2;
+          vx = -vxi;
         }
         else{
           vy = vyi
+          vx = -vxi;
         }
         vx = -vx;
     }
     //if ball is not in paddle(verificarrr!!!!!!!!!!!!!!!!)
     else if(x <= paddleLeftWidth-ballRadius){
       document.location.reload();
+      stage = 1;
+      localStorage.setItem("stage", stage);
     }
   }
 }
 
-function draw() {
+function update() {
   if (menuOff){
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.drawImage(bg, 0, 0, 600, 600);
+  context.drawImage(hudback, 0, 5, 600, 60);
   drawBricks();
+  if (played){
+  context.drawImage(blood, xtoDelete, ytoDelete, 50, 50);
+  }
   drawBall();
   drawPaddle();
   drawPaddleLeft();
@@ -118,6 +141,13 @@ function draw() {
     paddleX -= 3;
     paddleLeftY -=3;
   }
+  if (paddleLeftY < 60){
+    paddleLeftY = 60;
+  }
+  if (paddleLeftY+paddleLeftHeight > canvas.height)
+  {
+    paddleLeftY = canvas.height - paddleLeftHeight;
+  }
   //move ball
   x += vx;
   y += vy;
@@ -125,10 +155,10 @@ function draw() {
   localStorage.setItem("blocksBricked", blocksBricked);
 }
 
-if (blocksBricked >= 15){
+if (blocksBricked == 15 | blocksBricked == 30 | blocksBricked == 45 | blocksBricked == 60){
+    blocksBricked = 0;
     stage+=1;
     localStorage.setItem("stage", stage);
-    blocksBricked = 0;
     for(c = 0; c<brickColumnCount; c++){
       for(r = 0; r<brickRowCount; r++){
         var b = bricks[c][r]
@@ -138,4 +168,4 @@ if (blocksBricked >= 15){
   }
 }
 
-setInterval(draw, 1000/desiredFps);
+setInterval(update, 1000/desiredFps);
