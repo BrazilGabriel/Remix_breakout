@@ -51,7 +51,7 @@ function drawMenu(){
   context.drawImage(menuBack2, 0, 0, 600, 600);
   context.fillStyle = "red";
   }
-  context.font = "20px Tahoma";
+  context.font = "20px Consolas";
   context.fillText("Last time you've killed "+localStorage.getItem("blocksBricked")+" players", canvas.width/4, canvas.height/1.45);
   context.fillText("in "+localStorage.getItem("seconds_elapsed")+" seconds!", canvas.width/2.5, canvas.height/1.35);
   music.play();
