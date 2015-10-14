@@ -10,13 +10,12 @@ var tY = 40;
 var hudback = new Image();
 hudback.src = "imgs/scoreboard.png";
 
-context.font = "16px Consolas";
-
 function updateScore(){
   if (localStorage.getItem("stage") == 2){
     stage = 2;
   }
   context.fillStyle = "white";
+  context.font = "16px Consolas";
   context.fillText("Stage: "+stage+"", stageX, stageY);
   context.fillText("Players Killed: "+blocksBricked +"", bbX, bbY);
   context.fillText("Elapsed Time: "+ sec +"" , tX, tY);

@@ -3,11 +3,11 @@
   var brickWidth = 50;
   var brickHeight = 50;
   //distance of bricks
-  var brickPadding = 30;
+  var brickPadding = 40;
   //top margin
   var brickOffsetTop = 140;
   //left margin
-  var brickOffsetLeft = 100.5;
+  var brickOffsetLeft = 95;
 
   var obstacle1 = new Image();
   obstacle1.src = "imgs/O1.png";
