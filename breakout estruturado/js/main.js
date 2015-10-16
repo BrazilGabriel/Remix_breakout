@@ -1,20 +1,22 @@
 var desiredFps = 60;
 var lastUpdate = Date.now(); // tempo atual (para física)
 
+//disparo da animação; variável auxiliar
 var anime=false;
 var anime2=false;
 played = false;
+
+//background
 var bg = new Image();
 bg.src = "imgs/background.png";
 
-
+//tacos
 var taco = new AnimatedSprite(paddleX+25, paddleY-25, "imgs/spritetaco1.png", 121, 70, 1, context);
 var taco2 =  new AnimatedSprite(0,0, "imgs/spritetaco2.png", 70, 121, 2, context);
 
-// // // Sons
+//Sons
 var hitB = new Audio();
 hitB.src = "sounds/hit.ogg"
-
 var hit = new Audio();
 hit.src = "sounds/hitMan.mp3";
 
@@ -98,10 +100,10 @@ function update() {
     if (paddleLeftY+paddleLeftHeight > canvas.height){
       paddleLeftY = canvas.height - paddleLeftHeight;
     }
-  //move ball
+  //mover bola
     x += vx;
     y += vy;
-  //move paddle
+  //armazenar pontuação
     localStorage.setItem("blocksBricked", blocksBricked);
 }
 
@@ -118,9 +120,9 @@ if (blocksBricked == 15 | blocksBricked == 30 | blocksBricked == 45 | blocksBric
   }
 
 function render(){
-    // limpar a tela
     if (menuOff){
-      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.clearRect(0, 0, canvas.width, canvas.height);//limpar tela
+    // desenhar objetos do jogo
       context.drawImage(bg, 0, 0, 600, 600);
       context.drawImage(hudback, 0, 5, 600, 60);
       updateScore();
@@ -138,7 +140,6 @@ function render(){
       drawMenu();
     }
 
-    // desenhar objetos do jogo
 
 
 }
