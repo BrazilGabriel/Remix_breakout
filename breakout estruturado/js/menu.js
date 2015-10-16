@@ -1,12 +1,16 @@
 var canvas = document.getElementById("Canvas");
 var context = canvas.getContext('2d');
+
 var menuOff = false;
 var sec = 0;
 menuimage = false;
+
 document.addEventListener("keydown", change, false);
 
 music = new Audio();
 music.src = "sounds/song.mp3";
+
+//loop da musica de fundo
 if (typeof music.loop == 'boolean')
 {
     music.loop = true;
@@ -20,9 +24,11 @@ else
 }
 music.play();
 
+//saída do menu
 function change(){
   menuOff = true;
 }
+//contador do tempo de jogo
 function second(){
 if (menuOff){
   sec +=1;

@@ -1,4 +1,4 @@
-//paddle initial control
+//controles do paddle
 var keys = {
     right: false,
     left: false,

@@ -2,7 +2,7 @@ function collisionBricks(){
   for(c = 0; c<brickColumnCount; c++){
     for(r = 0; r<brickRowCount; r++){
       var b = bricks[c][r];
-      if (b.status == 1) {
+      if (b.status == 1) { // se o brick estiver ativo
         //verifica a colisao da bola com o brick
         if((x>= b.x && x <= b.x + brickWidth) && (y >= b.y && y <= b.y + brickHeight)){
           if(y >= b.y + (brickHeight/2)){

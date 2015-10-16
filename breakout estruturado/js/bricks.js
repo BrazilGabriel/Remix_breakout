@@ -1,14 +1,15 @@
-  var brickRowCount = 3;
-  var brickColumnCount = 5;
-  var brickWidth = 50;
-  var brickHeight = 50;
-  //distance of bricks
+  var brickRowCount = 3;//lqtd de linhas
+  var brickColumnCount = 5;//qtd de colunas
+  var brickWidth = 50;//largura dos bricks
+  var brickHeight = 50;//altura dos bricks
+  //distancia dos bricks
   var brickPadding = 40;
-  //top margin
+  //margem superior
   var brickOffsetTop = 140;
-  //left margin
+  //margem da esquerda
   var brickOffsetLeft = 95;
 
+  //sprites dos bricks
   var obstacle1 = new Image();
   obstacle1.src = "imgs/O1.png";
 
@@ -26,7 +27,7 @@
 
   var blood = new Image();
   blood.src = "imgs/blood.png";
-
+  //lista criando os bricks com posição, estado e sprite
   var bricks = [];
   for(c=0; c<brickColumnCount; c++){
     bricks[c] = [];
@@ -80,7 +81,7 @@
       }
     }
   }
-
+  //definição da função de random
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }

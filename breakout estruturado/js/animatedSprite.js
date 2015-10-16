@@ -53,19 +53,21 @@ AnimatedSprite.prototype.update = function(input, dt){
         this.currentFrameIndex++;
         if(this.currentFrameIndex >= this.frames.length){
             this.currentFrameIndex = 0;
-            if(this.paddle==1){
-              anime=false;
+            if(this.paddle==1){//se for o taco inferior
+              anime=false;//volta pra idle
             }
-            else{
-              anime2=false;
+            else{//se for o taco da esquerda
+              anime2=false;//volta pra idle
             }
           }
     }
-    if (this.paddle==1){
+    if (this.paddle==1){//se for o taco inferior
+      //mover junto com o paddle inferior
       this.x=paddleX+20;
       this.y=paddleY-32;
     }
-    else{
+    else{ // se for o taco da esquerda
+      //mover junto com o paddle da esquerda
       this.x=paddleLeftX-5;
       this.y=paddleLeftY+15;
     }
